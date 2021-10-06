@@ -1,0 +1,117 @@
+.registration {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 128px;
+  margin-top: 64px;
+  margin-bottom: 96px;
+  justify-content: space-between;
+
+  &__form {
+    min-width: 360px;
+
+    &-radio-other {
+      display: none;
+    }
+  }
+
+  &__loyalty {
+    min-width: 652px;
+
+    &-list {
+      margin: 22px 0 0 0;
+    }
+
+    &-item {
+      margin: 0 0 16px 44px;
+      position: relative;
+
+      &:before {
+        content: "";
+        background-image: url("../../../img/cart-check-mark.svg");
+        width: 20px;
+        height: 16px;
+        position: absolute;
+        left: -42px;
+        top: 8px;
+      }
+    }
+
+    &-text {
+      @include font(24px, 29px, 300);
+
+      &--heading {
+        margin: 0 0 22px 0;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &__button {
+    padding: 16px 30px;
+    background-color: $dark-pink;
+    border: none;
+    transition: outline 300ms linear, transform 100ms linear;
+
+    &-svg {
+      fill: $white;
+    }
+
+    &-text {
+      color: $white;
+      text-transform: uppercase;
+      margin: 0 20px 0 0;
+    }
+
+    &:hover {
+      outline: $dark-pink outset 2px;
+    }
+
+    &:active {
+      transform: scale(1.05);
+    }
+  }
+}
+
+@include tablet {
+  .registration {
+    margin-top: 40px;
+    column-gap: 22px;
+
+    &__form {
+      margin: 0;
+
+      &-radio-other {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+
+    &__loyalty {
+      min-width: 50%;
+
+      &-text {
+        @include font(16px, 19px, 300);
+
+        &--heading {
+          margin: 0 0 32px 0;
+        }
+      }
+    }
+  }
+}
+
+@include mobile {
+  .registration {
+    margin-bottom: 100px;
+    grid-template-columns: 1fr;
+
+    &__form {
+      width: 98%;
+    }
+
+    &__loyalty {
+      width: 98%;
+      margin: 40px 0 0 0;
+    }
+  }
+}

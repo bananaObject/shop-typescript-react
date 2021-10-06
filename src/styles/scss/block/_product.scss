@@ -1,0 +1,266 @@
+.product {
+  &__slider {
+    max-height: 777px;
+    background-color: $product-back;
+    box-sizing: border-box;
+
+    &-img {
+      margin: 11px 0 42px 0;
+      max-width: 587px;
+    }
+
+    &-button {
+      justify-content: normal;
+      fill: $black;
+
+      &--right {
+        justify-content: flex-end;
+        fill: $dark-pink;
+      }
+
+      &-svg {
+        padding: 13px 18px;
+        background-color: rgba(42, 42, 42, 0.15);;
+      }
+    }
+  }
+
+  &__info {
+    position: relative;
+    margin-top: -70px;
+    margin-bottom: 130px;
+    padding: 65px 0;
+    box-sizing: border-box;
+    min-height: 601px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    @include font(14px, 17px, 300);
+    border: 1px solid $product-grey;
+    background-color: $white;
+
+    &-link-category {
+      color: $dark-pink;
+      text-decoration: none;
+      text-transform: uppercase;
+      position: relative;
+      transition: font-size 300ms linear;
+
+      &:before {
+        content: '';
+        width: 63px;
+        height: 3px;
+        position: absolute;
+        bottom: -12px;
+        left: 30%;
+        background-color: $dark-pink;
+      }
+
+
+      &:hover {
+        font-weight: 400;
+        color: $dark-pink;
+      }
+    }
+
+    &-name {
+      @include font(18px, 22px, 300);
+      text-transform: uppercase;
+      margin: 28px 0 0 0;
+      color: $black-grey;
+    }
+
+    &-description {
+      max-width: 555px;
+      margin: 48px 0 32px 0;
+      text-align: center;
+      color: $dark-grey;
+    }
+
+    &-price {
+      @include font(24px, 29px, 300);
+      color: $dark-pink
+    }
+
+    &-form {
+      margin: 130px 0 0 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+
+      &:before {
+        content: '';
+        width: 641px;
+        height: 1px;
+        position: absolute;
+        top: -65px;
+        background-color: $product-grey;
+      }
+
+      &-select {
+        color: $light-dark-grey;
+        @include font(14px, 17px, 400);
+        text-transform: uppercase;
+        border: none;
+        background-color: transparent;
+        text-align: center;
+
+        &--margin {
+          margin: 0 24px;
+        }
+      }
+    }
+
+    &-button {
+      &-svg {
+        fill: $dark-pink;
+        margin: 0 23px;
+      }
+
+      @include font(16px, 19px);
+      color: $dark-pink;
+      width: 211px;
+      height: 50px;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      margin: 50px 0 0 0;
+      background-color: transparent;
+      border: 1px solid $dark-pink;
+      transition: background-color 700ms linear, transform 100ms linear, outline 100ms linear;
+
+      &:hover {
+        color: $white;
+        background-color: $dark-pink;
+        outline: none;
+      }
+
+      &:hover &-svg {
+        fill: $white;
+      }
+
+      &:active {
+        transform: scale(1.05);
+        outline: $dark-pink outset 2px;
+      }
+    }
+  }
+
+  &__catalog {
+    margin-bottom: 128px;
+
+    &-list {
+      margin: 0;
+    }
+  }
+}
+
+
+@include tablet {
+  .product {
+    &__slider {
+      &-img {
+        margin: 30px 0;
+        height: auto;
+        width: 60%;
+      }
+    }
+
+    &__info {
+      width: 100%;
+      margin-top: 0;
+    }
+
+    &__catalog {
+      &-list {
+        grid-template-columns: repeat(3, 360px);
+      }
+
+      &-item {
+        &--man-beard {
+          grid-column-start: 2;
+          grid-column-end: 3;
+        }
+
+        &--man-panama {
+          grid-column-start: 1;
+          grid-column-end: 2;
+          grid-row-start: 1;
+          grid-row-end: 2;
+        }
+      }
+    }
+  }
+}
+
+@include catalog-two-column {
+  .product {
+    &__catalog {
+      &-list {
+        grid-template-columns: repeat(auto-fit, 360px);
+      }
+
+      &-item {
+        &--woman {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@include mobile {
+  .product {
+    &__slider {
+      &-img {
+        margin: 85px 0;
+        height: auto;
+        width: 100%;
+      }
+    }
+
+    &__catalog {
+      margin-bottom: 64px;
+
+      &-list {
+        grid-template-columns: repeat(auto-fill, 360px);
+      }
+
+      &-item {
+        &--man-beard {
+          grid-column-start: auto;
+          grid-column-end: auto;
+        }
+
+        &--man-panama {
+          display: none;
+        }
+
+        &--woman {
+          display: block;
+        }
+      }
+    }
+
+    &__info {
+      margin-bottom: 64px;
+
+      &-description {
+        line-height: 20px;
+        width: 88%;
+      }
+
+      &-form {
+        &:before {
+          width: 47%;
+        }
+
+        &-select {
+          @include font(10px, 12px)
+        }
+      }
+    }
+  }
+}
