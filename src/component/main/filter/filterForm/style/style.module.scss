@@ -1,0 +1,12 @@
+@import "../../../../../assets/scss/viriables";
+@import "../../../../../assets/scss/mixin";
+
+.form {
+  display: flex;
+}
+
+@include tablet {
+  .form {
+    margin: 0;
+  }
+}

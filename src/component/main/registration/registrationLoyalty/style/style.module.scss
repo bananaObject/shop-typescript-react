@@ -1,0 +1,56 @@
+@import "../../../../../assets/scss/viriables";
+@import "../../../../../assets/scss/mixin";
+
+.loyalty {
+  min-width: 652px;
+
+  &List {
+    margin: 22px 0 0 0;
+  }
+
+  &Item {
+    margin: 0 0 16px 44px;
+    position: relative;
+
+    &:before {
+      content: "";
+      background-image: url("../../../../../assets/images/cart-check-mark.svg");
+      width: 20px;
+      height: 16px;
+      position: absolute;
+      left: -42px;
+      top: 8px;
+    }
+  }
+
+  &Text {
+    @include font(24px, 29px, 300);
+
+    &__heading {
+      @extend .loyaltyText;
+      margin: 0 0 22px 0;
+      text-transform: uppercase;
+    }
+  }
+}
+
+@include tablet {
+  .loyalty {
+    min-width: 50%;
+
+    &Text {
+      @include font(16px, 19px, 300);
+
+      &__heading {
+        margin: 0 0 32px 0;
+      }
+    }
+  }
+}
+
+@include mobile {
+  .loyalty {
+    width: 98%;
+    margin: 40px 0 0 0;
+  }
+}

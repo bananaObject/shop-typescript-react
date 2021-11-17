@@ -1,0 +1,116 @@
+@import "../../../../../assets/scss/boxContainer";
+@import "../../../../../assets/scss/mixin";
+@import "../../../../../assets/scss/fonts";
+
+.navigation {
+  z-index: 1;
+  top: -28px;
+
+  &List {
+    position: absolute;
+    min-width: 360px;
+    box-sizing: border-box;
+    top: -13px;
+    padding: 54px 0 0 33px;
+    visibility: hidden;
+    opacity: 0;
+    transform-origin: 0 0;
+    transform: rotateX(-90deg);
+    transition: .3s linear;
+    background: $white;
+    box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+
+    &:hover {
+      transform: rotateX(0deg);
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &Sublist {
+    margin: 0 0 32px 0;
+  }
+
+  &SubItem {
+    margin: 0 0 11px 0;
+  }
+
+  &Button {
+    border: none;
+    fill: black;
+    @include font(14px, 17px, 600);
+    color: $black;
+    text-transform: uppercase;
+    padding: 0;
+    background-color: transparent;
+    margin: 0 0 0 16px;
+
+    &:focus {
+      color: $dark-pink;
+      fill: $dark-pink;
+    }
+
+    &:focus ~ .navigationList {
+      transform: rotateX(0deg);
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &Svg {
+      margin: 0 0 0 11px;
+    }
+
+    &Category {
+      @extend .navigationButton;
+      position: relative;
+      color: $dark-pink;
+      font-weight: 400;
+      margin: 0 0 38px 0;
+
+      &:before {
+        position: absolute;
+        content: "";
+        Width: 5px;
+        Height: 37px;
+        background-color: $dark-pink;
+        left: -11px;
+        top: -50%;
+      }
+
+      &:after {
+        position: absolute;
+        content: "";
+        Width: 327px;
+        Height: 1px;
+        background-color: $light-dark-grey;
+        top: 165%;
+        left: -11px;
+      }
+    }
+
+    &Title {
+      @extend .navigationButton;
+      position: absolute;
+      z-index: 2;
+    }
+  }
+
+  &Link {
+    @include font(14px, 17px);
+    color: $light-dark-grey;
+  }
+}
+
+@include mobile {
+  .navigation {
+    &Button {
+      &Svg {
+        margin: 0;
+      }
+
+      &Text {
+        display: none;
+      }
+    }
+  }
+}

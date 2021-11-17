@@ -1,0 +1,22 @@
+[
+  {
+    "categories": "woman",
+    "text": "30% off",
+    "heading": "for women"
+  },
+  {
+    "categories":"man",
+    "text":"hot deal",
+    "heading":"for men"
+  },
+  {
+    "categories":"kid",
+    "text":"new arrivals",
+    "heading":"for kids"
+  },
+  {
+    "categories":"accesories",
+    "text":"luxirous & trendy",
+    "heading":"accesories"
+  }
+]

@@ -1,0 +1,11 @@
+@import "./viriables";
+
+.box-container {
+  width: 1140px;
+  margin: 0 auto;
+}
+@media (max-width: $desktop-width) {
+  .box-container {
+    width: 96%;
+  }
+}

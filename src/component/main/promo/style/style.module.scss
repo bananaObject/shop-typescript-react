@@ -1,0 +1,91 @@
+@import "../../../../assets/scss/viriables";
+@import "../../../../assets/scss/mixin";
+@import "../../../../assets/scss/boxContainer";
+
+.promo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  position: relative;
+  margin-bottom: 65px;
+}
+
+.img {
+  width: 100%;
+  height: auto;
+}
+
+.heading {
+  @include font(48px, 58px, 900);
+  text-transform: uppercase;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 100%;
+    background-color: $dark-pink;
+    left: -20px;
+  }
+
+  &Wrapper {
+    background-color: $pink;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 92px;
+  }
+}
+
+.subHeading {
+  @include font(32px, 44px, 700);
+  font-style: normal;
+  display: block;
+
+  &Pink {
+    color: $dark-pink;
+  }
+}
+
+@media (max-width: $desktop-width) {
+  .promo {
+    margin-bottom: 20px;
+  }
+  .heading {
+    @include font(44px, 52px, 900);
+
+    &Wrapper {
+      padding: 0 0 0 68px;
+    }
+  }
+
+  .subHeading {
+    @include font(24px, 29px, 700);
+  }
+}
+
+@media (max-width: $table-width) {
+  .promo {
+    grid-template-columns: 1fr;
+    margin-bottom: 64px;
+  }
+
+  .img {
+    display: none;
+  }
+
+  .heading {
+    @include font(38px, 46px, 900);
+    margin-left: auto;
+    margin-right: auto;
+
+    &Wrapper {
+      padding: 0;
+      min-height: 363px;
+    }
+  }
+
+  .subHeading {
+    @include font(20px, 24px, 700);
+  }
+}

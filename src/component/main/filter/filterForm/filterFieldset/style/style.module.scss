@@ -1,0 +1,113 @@
+@import "../../../../../../assets/scss/viriables";
+@import "../../../../../../assets/scss/mixin";
+
+.fieldset {
+  position: relative;
+}
+
+.button {
+  @include font(14px, 17px);
+  fill: $light-dark-grey;
+  color: $light-dark-grey;
+  border: none;
+  background-color: transparent;
+  text-transform: uppercase;
+  padding: 0 13px;
+  min-width: 170px;
+
+  &Active{
+    @extend .button;
+    color: $dark-pink;
+  }
+
+  &Svg {
+    margin: 0 0 0 10px;
+    vertical-align: middle;
+  }
+
+  &:focus ~ .div {
+    transform: rotateX(0deg);
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.div {
+  z-index: 1;
+  display: grid;
+  row-gap: 6px;
+  background-color: $white;
+  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+  padding: 10px 30px;
+  box-sizing: border-box;
+  visibility: hidden;
+  opacity: 0;
+  transform-origin: 0% 0%;
+  transform: rotateX(-90deg);
+  transition: .3s linear;
+  position: absolute;
+  left: 20%;
+
+  &Checkbox {
+    position: absolute;
+    content: "";
+    width: 11px;
+    height: 11px;
+    border: 1px solid #EBEBEB;
+    display: inline-block;
+    vertical-align: middle;
+    left: -20px;
+  }
+
+  &Label {
+    font-family: Roboto, serif;
+    @include font(14px, 16px);
+    font-style: normal;
+    text-transform: uppercase;
+    position: relative;
+    color: $light-dark-grey;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &ActiveSelect {
+    color: $dark-pink;
+    font-weight: 700;
+  }
+
+  &CheckboxInput {
+    &:checked + .divCheckbox {
+      background-color: $dark-pink;
+    }
+  }
+
+  &:hover {
+    transform: rotateX(0deg);
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &Input{
+    width: 100%;
+    @include font(14px, 17px, 300);
+    box-sizing: border-box;
+    border: 1px solid #A4A4A4;
+    text-align: center;
+
+    &:focus-visible {
+      outline: $dark-pink solid 1px;
+    }
+  }
+}
+
+@include tablet {
+  .fieldset {
+    justify-content: space-between;
+  }
+}
+
+@include mobile {
+  .button {
+    padding: 0 9px;
+  }
+}

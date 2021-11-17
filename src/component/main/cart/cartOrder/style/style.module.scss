@@ -1,0 +1,138 @@
+@import "../../../../../assets/scss/viriables";
+@import "../../../../../assets/scss/mixin";
+
+.order {
+  &Shipping {
+    width: 360px;
+  }
+
+  &ButtonGetQuote {
+    padding: 10px 14px 10px 14px;
+    background-color: transparent;
+    text-transform: uppercase;
+    @include font(11px, 13px, 400);
+    border: 1px solid #A4A4A4;
+    margin: 0 0 60px 0;
+    transition: background-color 700ms linear, transform 100ms linear, outline 100ms linear;
+
+    &:hover {
+      color: $white;
+      background-color: $dark-pink;
+      outline: none;
+    }
+
+    &:active {
+      transform: scale(1.05);
+      outline: $dark-pink outset 1px;
+    }
+  }
+  &Checkout {
+    @extend .checkout
+  }
+}
+
+.checkout {
+  background-color: #F5F3F3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  max-height: 214px;
+  min-width: 360px;
+
+  &Text {
+    @include font(11px, 13px);
+    text-transform: uppercase;
+    margin: 40px 34px 0 0;
+
+    &_value {
+      margin: 0 0 0 16px;
+
+      &__red {
+        @extend .checkoutText_value__red;
+        font-weight: 700;
+        color: $dark-pink;
+      }
+    }
+
+    &__total {
+      @extend .checkoutText;
+      @include font(16px, 19px, 300);
+      margin: 12px 37px 0 0;
+    }
+  }
+
+  &Button {
+    padding: 15px 40px 15px 40px;
+    @include font(16px, 19px, 300);
+    background-color: $dark-pink;
+    color: $white;
+    text-transform: uppercase;
+    border: none;
+    position: relative;
+    margin: 40px 40px 40px 40px;
+    transition: color 100ms linear, transform 100ms linear, outline 100ms linear;;
+
+    &:before {
+      content: "";
+      width: 275px;
+      height: 1px;
+      background-color: #E2E2E2;
+      position: absolute;
+      top: -37%;
+      left: 1%;
+    }
+
+    &:hover {
+      color: $black;
+    }
+
+    &:active {
+      transform: scale(1.015);
+      outline: $dark-pink outset 1px;
+      color: $white;
+    }
+  }
+}
+
+
+@include tablet {
+  .order {
+    display: flex;
+    justify-content: end;
+    margin: 64px 0 0 0;
+
+    &ButtonGetQuote {
+      margin: 0;
+    }
+
+    &Checkout {
+      margin: 40px 0 0 16px;
+      width: 50%;
+    }
+
+    &Shipping {
+      width: 50%;
+    }
+  }
+}
+
+@include mobile {
+  .order {
+    flex-direction: column;
+
+    &ButtonGetQuote {
+      text-transform: none;
+    }
+
+
+    &Checkout {
+      margin: 49px 0 0 0;
+      width: 100%;
+    }
+
+    &Shipping {
+      width: 100%;
+    }
+  }
+}
+

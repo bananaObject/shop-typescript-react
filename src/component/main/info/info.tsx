@@ -1,14 +1,16 @@
 import React from 'react';
 import InfoItem from './infoItem';
-
-import {infoJson} from './fetch';
+import {configFunc} from './configuration/configuration';
+import styles from './style/style.module.scss';
 
 const Info: React.FC = () => {
+    const items = configFunc();
+
     return (
-        <section className="info">
-            <h2 className="visually-hidden">Info</h2>
-            <ul className="info__list box-container">
-                {infoJson.map((item, index) => {
+        <section className={styles.info}>
+            <h2 hidden>Info</h2>
+            <ul className={styles.list}>
+                {items.map((item, index) => {
                     const {logo, heading, text} = item;
                     return <InfoItem logo={logo} text={text} heading={heading} key={index}/>;
                 })}

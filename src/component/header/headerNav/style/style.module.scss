@@ -1,0 +1,84 @@
+@import "../../../../assets/scss/viriables";
+@import "../../../../assets/scss/mixin";
+@import "../../../../assets/scss/animation";
+
+.menu {
+  position: absolute;
+  top: 75px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  transition: background 300ms linear;
+  height: 0;
+  z-index: 1;
+}
+
+.wrp {
+  width: 100%;
+}
+
+.navigation {
+  background-color: $white;
+  padding: 37px 73px 0 33px;
+  transition: transform 300ms linear;
+  box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+  transform: translateX(230px);
+
+  &Title {
+    margin: 0 0 24px 0;
+    @include font(14px, 17px, 700);
+    text-transform: uppercase;
+  }
+
+  &CloseButton{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    fill: $light-dark-grey;
+    right: 9px;
+    top: 9px;
+    border: none;
+    width: 21px;
+    height: 21px;
+    background: transparent;
+    transition: transform 100ms linear;
+
+    &:active {
+      transform: scale(1.1);
+    }
+  }
+  &Item {
+    &_link {
+      @include font(14px, 17px, 400);
+      color: $dark-pink;
+      text-transform: uppercase;
+
+      &:hover {
+        color: $black;
+        cursor: pointer;
+      }
+    }
+
+    &_subList {
+      margin: 12px 0 20px 0;
+    }
+
+    &_subItem {
+      margin: 11px 0 0 28px;
+
+      &Link {
+        @include font(14px, 17px, 400);
+        color: $black;
+        text-transform: capitalize;
+        transition: color 200ms linear;
+
+        &:hover {
+          color: $dark-pink;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

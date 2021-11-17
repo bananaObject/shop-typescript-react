@@ -1,0 +1,36 @@
+@import "../../../../../assets/scss/viriables";
+@import "../../../../../assets/scss/mixin";
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: relative;
+}
+
+.button{
+  background-color: transparent;
+  text-transform: uppercase;
+  font-family: Roboto, serif;
+  @include font(14px, 16px);
+  border: none;
+  color: $light-dark-grey;
+  transition: background-color 700ms linear, transform 100ms linear, outline 100ms linear;
+
+  &:hover {
+    color: $white;
+    background-color: $dark-pink;
+    outline: none;
+  }
+
+  &:active {
+    transform: scale(1.05);
+    outline: $dark-pink outset 1px;
+  }
+}
+
+@include tablet {
+  .filter {
+    justify-content: space-between;
+  }
+}
