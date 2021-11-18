@@ -1,0 +1,20 @@
+@import "../../../../../assets/scss/viriables";
+@import "../../../../../assets/scss/mixin";
+
+.radioOther {
+  display: none;
+}
+
+.passText {
+  @include font(13px, 16px, 300);
+  color: $form-grey;
+  margin: 16px 0 0 0;
+  opacity: $opacity-placeholder;
+}
+
+@include tablet {
+  .radioOther {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}

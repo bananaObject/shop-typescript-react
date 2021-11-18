@@ -1,0 +1,67 @@
+@import "../../../../assets/scss/viriables";
+@import "../../../../assets/scss/mixin";
+@import "../../../../assets/scss/boxContainer";
+
+.registration {
+  @extend .box-container;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 128px;
+  margin-top: 64px;
+  margin-bottom: 96px;
+  justify-content: space-between;
+}
+
+.form {
+  min-width: 360px;
+
+  &-radio-other {
+    display: none;
+  }
+}
+
+.button {
+  padding: 16px 30px;
+  background-color: $dark-pink;
+  border: none;
+  transition: outline 300ms linear, transform 100ms linear;
+
+  &Svg {
+    fill: $white;
+  }
+
+  &Text {
+    color: $white;
+    text-transform: uppercase;
+    margin: 0 20px 0 0;
+  }
+
+  &:hover {
+    outline: $dark-pink outset 2px;
+  }
+
+  &:active {
+    transform: scale(1.05);
+  }
+}
+
+@include tablet {
+  .registration {
+    margin-top: 40px;
+    column-gap: 22px;
+
+  }
+  .form {
+    margin: 0;
+  }
+}
+
+@include mobile {
+  .registration {
+    margin-bottom: 100px;
+    grid-template-columns: 1fr;
+  }
+  .form {
+    width: 98%;
+  }
+}

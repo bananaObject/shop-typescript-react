@@ -1,17 +1,18 @@
 import React from 'react';
 import SubscribeForm from './subscribeForm';
 import SubscribeQuote from './subscribeQuote';
+import styles from './style/style.module.scss';
 
 const Subscribe: React.FC = () => {
     return (
-        <section className="subscribe">
-            <h2 className="visually-hidden">Subscribe</h2>
+        <section className={styles.subscribe}>
+            <h2 hidden>Subscribe</h2>
 
-            <ul className="subscribe__list box-container">
-                <li className="subscribe__item">
+            <ul className={styles.list}>
+                <li className={styles.item}>
                     <SubscribeQuote/>
                 </li>
-                <li className="subscribe__item">
+                <li className={styles.item}>
                     <SubscribeForm/>
                 </li>
             </ul>

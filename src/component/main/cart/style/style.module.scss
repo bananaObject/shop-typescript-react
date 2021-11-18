@@ -1,0 +1,24 @@
+@import "../../../../assets/scss/mixin";
+@import "../../../../assets/scss/boxContainer";
+
+.cart {
+  @extend .box-container;
+  display: flex;
+  justify-content: space-between;
+  margin: 96px auto 128px auto;
+}
+
+
+@include tablet {
+  .cart {
+    flex-direction: column;
+    margin: 60px auto 128px auto;
+  }
+}
+
+@include mobile {
+  .cart {
+    margin: 40px auto 96px auto;
+  }
+}
+

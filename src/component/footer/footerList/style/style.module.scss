@@ -1,0 +1,40 @@
+@import "../../../../assets/scss/viriables";
+@import "../../../../assets/scss/mixin";
+@import "../../../../assets/scss/animation";
+
+.listNetwork {
+  display: flex;
+}
+
+.itemNetwork {
+  margin: 0 0 0 8px;
+}
+
+.link {
+  display: block;
+  fill: $black;
+}
+
+.svg {
+  padding: 8px;
+  background-color: $white;
+  box-sizing: content-box;
+  transition: transform 300ms linear ;
+
+  &__inst {
+    @extend .svg;
+    background-color: $dark-pink;
+    fill: $white-svg;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    animation: move 1000ms infinite linear;
+  }
+}
+
+@include mobile {
+  .list {
+    margin: 43px 0 0 0;
+  }
+}

@@ -1,14 +1,18 @@
 import React, {useEffect, useState} from 'react';
 import {useTypedSelector} from '../../../hooks/useTypedSelector';
-import HeaderButton from '../HeaderButton';
+import HeaderButtonLink from '../HeaderButtonLink';
 import {useAction} from '../../../hooks/useAction';
+import HeaderNavMenu from './HeaderNavMenu';
+import itemsMenuJSON from './json/headerMenuItem.json';
+import styles from './style/style.module.scss';
 
 const HeaderNav: React.FC = () => {
-    const {navItems, menuSwitch} = useTypedSelector(state => state.headerNav);
-    const {switchMenuHeader} = useAction();
-    const [menuRender, setMenuRender] = useState<boolean>(false);
-    const [style, setStyle] = useState({nav: {}, menu: {}});
+    const {menuSwitch} = useTypedSelector(state => state.headerNav);
 
+    const [menuRender, setMenuRender] = useState<boolean>(false);
+    const {switchMenuHeader} = useAction();
+
+    const [style, setStyle] = useState({nav: {}, menu: {}});
     const {nav, menu} = style;
 
     useEffect(() => {
@@ -26,7 +30,6 @@ const HeaderNav: React.FC = () => {
                     }
                 );
             }, 100);
-
         } else {
             setStyle({
                 nav: {},
@@ -40,40 +43,22 @@ const HeaderNav: React.FC = () => {
         }
     }, [menuSwitch]);
 
-    if (menuRender){
+    if (menuRender) {
         return (
-            <div className="header__menu" style={menu}>
-                <div className="header__menu-wrp"/>
+            <div className={styles.menu} style={menu}>
+                <div className={styles.wrp}/>
 
-                <nav className="header__menu-nav header__navigation" style={nav}>
-                    <HeaderButton is={'button'} logo={'close'} className={['header__navigation-close-button']} onClick={switchMenuHeader}/>
-                    <h2 className="header__navigation-title">menu</h2>
+                <nav className={styles.navigation} style={nav}>
+                    <HeaderButtonLink is={'button'} logo={'close'} className={styles.navigationCloseButton}
+                                      onClick={switchMenuHeader}/>
 
-                    <ul className='header__navigation-list'>
-                        {//TODO Продумать nav
-                            navItems?.map((item, index) =>
-                                (
-                                    <li className="header__navigation-item  navigation-item" key={index}>
-                                        <a className="navigation-item-link" href="#">{item.title}</a>
+                    <h2 className={styles.navigationTitle}>menu</h2>
 
-                                        <ul className="navigation-item__sub-list">
-                                            {item.subTitle.map((subTitle, index)=>
-                                                (
-                                                    <li className="navigation-item__sub-item" key={index}>
-                                                        <a className="navigation-item__sub-item-link" href="#">{subTitle.title}</a>
-                                                    </li>
-                                                )
-                                            )}
-                                        </ul>
-                                    </li>
-                                )
-                            )
-                        }
-                    </ul>
+                    <HeaderNavMenu menuItem={itemsMenuJSON}/>
                 </nav>
             </div>
         );
-    }else {
+    } else {
         return null;
     }
 

@@ -1,12 +1,13 @@
 import React from 'react';
-import photoWoman from '../../../img/photo-woman.png';
+import photoWoman from '../../../assets/images/photo-woman.png';
+import styles from './style/style.module.scss';
 
 const SubscribeQuote:React.FC = () => {
     return (
         <>
-            <img className="subscribe__item-img" src={photoWoman} alt="subscribe-woman" width="96" height="96"/>
-            <span className="subscribe__item-quote">“Vestibulum quis porttitor dui! Quisque viverra nunc mi,
-                <span className="subscribe__item-quote-italic"> a pulvinar purus condimentum“</span></span>
+            <img src={photoWoman} alt="subscribe-woman" width="96" height="96"/>
+            <span className={styles.itemQuote}>“Vestibulum quis porttitor dui! Quisque viverra nunc mi,
+                <span className={styles.itemQuote__italic}> a pulvinar purus condimentum“</span></span>
         </>
     );
 };

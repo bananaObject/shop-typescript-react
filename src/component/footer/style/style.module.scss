@@ -1,0 +1,39 @@
+@import "../../../assets/scss/viriables";
+@import "../../../assets/scss/mixin";
+@import "../../../assets/scss/animation";
+@import "../../../assets/scss/boxContainer";
+
+.footer {
+  background-color: $dark-blue;
+}
+
+.wrp {
+  @extend .box-container;
+  min-height: 79px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copy {
+  @include font(16px, 19px);
+  color: $white;
+}
+
+@include tablet {
+  .footer {
+    padding: 0 16px;
+  }
+}
+
+@include mobile {
+  .wrp {
+    min-height: 143px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .copy {
+    margin: 0 0 9px 0;
+  }
+}

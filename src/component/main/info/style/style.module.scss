@@ -1,0 +1,42 @@
+@import "../../../../assets/scss/viriables";
+@import "../../../../assets/scss/mixin";
+@import "../../../../assets/scss/boxContainer";
+
+.info {
+  background-color: $black;
+}
+.list {
+  @extend .box-container;
+  @include flex-center;
+  min-height: 341px;
+}
+
+.item {
+  max-width: 360px;
+  min-height: 134px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  color: $white;
+
+  &Svg{
+    fill: $dark-pink;
+  }
+
+  &Heading {
+    @include font(20px, 24px);
+  }
+
+  &Text {
+    @include font(14px, 17px, 300);
+  }
+}
+@include tablet {
+  .list {
+    justify-content: space-evenly;
+    flex-direction: column;
+    min-height: 610px;
+  }
+}

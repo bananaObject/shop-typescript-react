@@ -1,0 +1,36 @@
+@import "../../../../assets/scss/viriables";
+@import "../../../../assets/scss/mixin";
+@import "../../../../assets/scss/boxContainer";
+
+.catalog {
+  @extend .box-container;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 51px;
+  margin-bottom: 95px;
+
+}
+
+.button {
+  @include font(16px, 19px);
+  color: $dark-pink;
+  background-color: transparent;
+  border: 1px solid $dark-pink;
+  padding: 14px 38px;
+  outline: none;
+  transition: background-color 300ms linear, transform 100ms linear, outline 100ms linear;
+
+  &:hover {
+    color: $white;
+    background-color: $dark-pink;
+  }
+
+  &:active {
+    transform: scale(1.05);
+    outline: $dark-pink outset 2px;
+  }
+}
+
+
+

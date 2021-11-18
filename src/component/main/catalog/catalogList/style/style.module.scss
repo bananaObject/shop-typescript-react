@@ -1,0 +1,99 @@
+@import "../../../../../assets/scss/viriables";
+@import "../../../../../assets/scss/mixin";
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(3, 360px);
+  gap: 30px;
+  margin: 65px 0 48px 0;
+  width: 100%;
+  justify-content: center;
+}
+
+.item {
+  background-color: $light-grey;
+
+  &Overlay {
+    position: relative;
+
+    &:before {
+      content: '';
+      width: 100%;
+      min-height: 100%;
+      transition: background 300ms linear;
+      position: absolute;
+    }
+  }
+
+  &Img {
+    height: auto;
+  }
+
+  &Button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 43px;
+    width: 138px;
+    background-color: transparent;
+    color: $white;
+    border: 1px solid $white;
+    @include font(14px, 17px);
+    align-items: center;
+    justify-content: space-around;
+    display: none;
+    transition: background-color 300ms linear, transform 100ms linear, outline 100ms linear;
+
+    &_svg {
+      fill: $white;
+    }
+
+    &:hover {
+      background-color: $dark-grey;
+    }
+
+    &:active {
+      transform: translate(-50%, -50%) scale(1.05);
+      outline: $white outset 1px;
+    }
+  }
+
+  &Info {
+    padding: 25px 28px 20px 16px;
+  }
+
+  &Heading {
+    @include font(13px, 16px);
+    text-transform: uppercase;
+  }
+
+  &Text {
+    @include font(14px, 17px, 300);
+    color: $dark-grey;
+    margin: 12px 0 18px 0;
+  }
+
+  &Price {
+    @include font(16px, 19px);
+    color: $dark-pink;
+    word-wrap: anywhere;
+  }
+
+  &:hover &Button {
+    display: flex;
+  }
+
+  &:hover &Overlay:before {
+    background: rgba(58, 56, 56, 0.86);
+  }
+}
+
+
+@include tablet {
+  .list {
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, 360px);
+    margin: 40px 0;
+  }
+}

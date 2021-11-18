@@ -1,0 +1,132 @@
+@import "../../../../../assets/scss/viriables";
+@import "../../../../../assets/scss/mixin";
+
+.item {
+  display: flex;
+  margin: 0 0 42px;
+  box-shadow: 17px 19px 24px rgba(0, 0, 0, 0.13);
+  position: relative;
+
+  &CloseSvg {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    fill: $light-dark-grey;
+
+    transition: transform 100ms linear;
+
+    &:active {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.cartEmpty{
+  height: 50vh;
+  display: flex;
+
+  &_text{
+    font-size: 30px;
+    margin: auto;
+    color: $light-dark-grey;
+  }
+}
+
+.sub {
+  &Item {
+    margin: 0 0 6px 0;
+    @include font(22px, 26px);
+
+    &_value {
+      border: none;
+
+      &__red {
+        @extend .subItem_value;
+        color: $dark-pink;
+      }
+
+      &__border {
+        @extend .subItem_value;
+        margin: 0 0 0 24px;
+        padding: 0 16px 0 16px;
+        border: 1px solid #EAEAEA;;
+      }
+    }
+
+    &_heading {
+      @extend .subItem;
+      @include font(24px, 29px);
+      margin: 0 0 42px 0;
+      text-transform: uppercase;
+      width: 200px
+    }
+  }
+  &List {
+    padding: 31px 0 0 22px;
+    width: 390px;
+    box-sizing: border-box;
+  }
+}
+
+.boxButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  padding: 17px 40px 17px 40px;
+  margin: 32px 0 0 0;
+  background-color: transparent;
+  border: 1px solid #A4A4A4;
+  text-transform: uppercase;
+  transition: background-color 700ms linear, transform 100ms linear, outline 100ms linear;
+
+  &:hover {
+    color: $white;
+    background-color: $dark-pink;
+    outline: none;
+  }
+
+  &:active {
+    transform: scale(1.05);
+    outline: $dark-pink outset 2px;
+  }
+}
+
+@include mobile {
+  .item {
+    margin: 0 0 32px;
+  }
+
+  .button {
+    padding: 9px 18px 9px 18px;
+    margin: 0 0 0 0;
+    @include font(12px, 14px);
+  }
+
+  .boxButtons {
+    justify-content: space-between;
+  }
+
+  .sub {
+    &List {
+      padding: 13px 0 0 17px;
+    }
+
+    &Item {
+      @include font(14px, 17px);
+
+      &_heading {
+        @include font(16px, 19px);
+        margin: 0 0 25px 0;
+        width: 143px;
+      }
+    }
+  }
+
+  .img {
+    width: auto;
+    height: 188px;
+  }
+}
+

@@ -1,17 +1,28 @@
 import React from 'react';
-import Header from './containers/header';
-import './styles/scss/style.scss';
-import Main from './containers/main';
-import Footer from './containers/footer';
+import './assets/scss/style.scss';
+import {Route, Router, Switch, } from 'react-router-dom';
+import MainHome from './containers/mainHome';
+import Header from './component/header/header';
+import Footer from './component/footer/footer';
+import CartPage from './containers/cartPage';
+import { createBrowserHistory } from 'history';
+import RegistrationPage from './containers/registrationPage';
+import CatalogPage from './containers/catalogPage';
 
-const App :React.FC= () => {
+const history = createBrowserHistory();
+
+const App: React.FC = () => {
     return (
-        <>
+        <Router  history={history}>
             <Header/>
-            <Main/>
+            <Switch>
+                <Route exact path={'/'} component={MainHome}/>
+                <Route path={'/cart'} component={CartPage}/>
+                <Route path={'/registration'} component={RegistrationPage}/>
+                <Route path={'/all-catalog'} component={CatalogPage}/>
+            </Switch>
             <Footer/>
-        </>
-
+        </Router>
     );
 };
 

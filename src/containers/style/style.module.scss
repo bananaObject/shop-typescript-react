@@ -1,0 +1,7 @@
+@import "../../assets/scss/viriables";
+@import "../../assets/scss/mixin";
+
+.catalogText {
+  @include font(14px, 32px);
+  color: $grey;
+}

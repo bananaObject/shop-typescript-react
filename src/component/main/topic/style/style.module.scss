@@ -1,0 +1,31 @@
+@import "../../../../assets/scss/viriables";
+@import "../../../../assets/scss/mixin";
+@import "../../../../assets/scss/boxContainer";
+
+.topic {
+  background-color: $light-grey;
+}
+
+.container {
+  @include flex-center;
+  min-height: 148px;
+  @extend .box-container
+}
+
+.heading {
+  @include font(24px, 29px);
+  text-transform: uppercase;
+  color: $dark-pink;
+}
+
+
+@include mobile {
+  .heading {
+    text-align: center;
+  }
+
+  .container {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
